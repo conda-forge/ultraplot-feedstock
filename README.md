@@ -152,6 +152,3 @@ Feedstock Maintainers
 
 * [@cvanelteren](https://github.com/cvanelteren/)
 
-
-<!-- dummy commit to enable rerendering -->
-
