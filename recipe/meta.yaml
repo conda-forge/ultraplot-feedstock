@@ -7,7 +7,7 @@ source:
   sha256: 51ebff676b110b7a2018db0202b625557afceea66e61fa0a09fd41b48cd24c20
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install . --no-deps -vv
 
@@ -19,7 +19,7 @@ requirements:
   run:
     - importlib-metadata
     - python >={{ python_min }}
-    - matplotlib-base
+    - matplotlib-base >=3.9.2
 
 test:
   imports:
