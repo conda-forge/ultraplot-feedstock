@@ -1,13 +1,13 @@
 package:
   name: ultraplot
-  version: "0.99.3"
+  version: 1.0.3
 
 source:
-  url: https://pypi.org/packages/source/u/ultraplot/ultraplot-0.99.3.tar.gz
-  sha256: 51ebff676b110b7a2018db0202b625557afceea66e61fa0a09fd41b48cd24c20
+  url: https://pypi.org/packages/source/u/ultraplot/ultraplot-{{ version }}.tar.gz
+  sha256: 79e12167f99205280cf3f3ada4c93e8836b4cd4b9d4a6046bf3d49afe403d92f
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: python -m pip install . --no-deps -vv
 
