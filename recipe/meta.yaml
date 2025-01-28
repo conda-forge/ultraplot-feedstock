@@ -1,6 +1,8 @@
+{% set version = "1.0.3" %}
+
 package:
   name: ultraplot
-  version: 1.0.3
+  version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/u/ultraplot/ultraplot-{{ version }}.tar.gz
