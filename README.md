@@ -153,6 +153,3 @@ Feedstock Maintainers
 * [@beckermr](https://github.com/beckermr/)
 * [@cvanelteren](https://github.com/cvanelteren/)
 
-
-<!-- dummy commit to enable rerendering -->
-
