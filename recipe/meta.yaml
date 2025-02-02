@@ -30,7 +30,7 @@ test:
     - ultraplot
   commands:
     # - pip check  # fails due to basemap not on mpl10
-    - python -c "import ultraplot; assert ultraplot.__version__ == {{ version }}.replace('v', '')"
+    - python -c "import ultraplot; assert ultraplot.__version__ == '{{ version }}'.replace('v', '')"
   requires:
     - pip
     - python {{ python_min }}
