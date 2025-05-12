@@ -24,6 +24,7 @@ requirements:
     - importlib-metadata
     - python >={{ python_min }}
     - matplotlib-base >=3.9.2
+    - typing-extensions
 
 test:
   imports:
