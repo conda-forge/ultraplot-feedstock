@@ -23,7 +23,7 @@ requirements:
   run:
     - importlib-metadata
     - python >={{ python_min }}
-    - matplotlib-base >=3.9.2,<3.10
+    - matplotlib-base >=3.9.2,<3.11
     - typing-extensions
 
 test:
