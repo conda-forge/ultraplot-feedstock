@@ -1,4 +1,4 @@
-{% set version = "1.60.0" %}
+{% set version = "1.60.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/u/ultraplot/ultraplot-{{ version }}.tar.gz
-  sha256: 0746553b1161fe5df36efcc239cfa091cda9969c42ac95137f836dc16e56c960
+  sha256: b009b0be81fcaa4fcfb1292b5e4e3a4acdca36988ef7ee05b1212e200a937530
 
 build:
   number: 0
