@@ -20,10 +20,13 @@ requirements:
     - pip
     - setuptools
     - setuptools_scm
+    - numpy >= 1.26.0
+    - matplotlib-base >=3.9, <3.12
   run:
     - importlib-metadata
     - python >={{ python_min }}
-    - matplotlib-base >=3.9.2,<3.11
+    - matplotlib-base >=3.9,<3.12
+    - numpy >= 1.26.0
     - typing-extensions
   run_constrained:
     - basemap >=1.4.1
