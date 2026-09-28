@@ -53,9 +53,11 @@ tests:
       source:
         - pyproject.toml
         - ultraplot/tests
+        - tools
     requirements:
       run:
         - python ${{ python_min }}.*
+        - matplotlib-base ${{ mpl_min }}.*
         - pytest
         - pytest-mpl
         - cartopy
