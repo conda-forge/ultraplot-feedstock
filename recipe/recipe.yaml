@@ -56,8 +56,8 @@ tests:
     requirements:
       run:
         - python ${{ python_min }}.*
-        - matplotlib
         - pytest
+        - pytest-mpl
         - cartopy
         - cftime
         - pandas
