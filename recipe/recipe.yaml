@@ -60,10 +60,6 @@ tests:
 
         fig, ax = uplt.subplots()
         ax.plot([0, 1], [0, 1])
-    requirements:
-      run:
-        - python ${{ python_min }}.*
-        - matplotlib-base ${{ mpl_min }}.*
 
   - script:
       content:
