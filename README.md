@@ -15,7 +15,6 @@ Ultraplot is a Python library that provides a high-level interface for creating
 publication-quality plots using matplotlib. It focuses on making common plotting
 tasks simple while maintaining full flexibility for customization.
 
-
 Current build status
 ====================
 
@@ -197,7 +196,4 @@ Feedstock Maintainers
 
 * [@beckermr](https://github.com/beckermr/)
 * [@cvanelteren](https://github.com/cvanelteren/)
-
-
-<!-- dummy commit to enable rerendering -->
 

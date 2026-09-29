@@ -1,22 +1,25 @@
-{% set version = "2.7.0" %}
-{% set python_min = "3.10" %}
+schema_version: 1
+
+context:
+  version: "2.7.0"
+  python_min: "3.10"
 
 package:
   name: ultraplot
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/u/ultraplot/ultraplot-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/u/ultraplot/ultraplot-${{ version }}.tar.gz
   sha256: c697ad6b64dc75f6b9fbeff593228c40ccf78a1bc5bb70fd2c5abdc8df227af5
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
     - setuptools_scm
@@ -24,25 +27,29 @@ requirements:
     - matplotlib-base >=3.9, <3.12
   run:
     - importlib-metadata
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - matplotlib-base >=3.9,<3.12
     - numpy >=1.26.0
     - typing-extensions
-  run_constrained:
+  run_constraints:
     - basemap >=1.4.1
 
-test:
-  imports:
-    - ultraplot
-  commands:
-    # - pip check  # fails due to basemap not on mpl10
-    - python -c "import ultraplot; assert ultraplot.__version__ == '{{ version }}'.replace('v', '')"
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - ultraplot
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - python -c "import ultraplot; assert ultraplot.__version__ == '${{ version }}'.replace('v', '')"
 
 about:
-  home: https://github.com/ultraplot/ultraplot
   license: MIT
   license_file: LICENSE.txt
   summary: Elegant and flexible high-level plotting with matplotlib
@@ -50,7 +57,8 @@ about:
     Ultraplot is a Python library that provides a high-level interface for creating
     publication-quality plots using matplotlib. It focuses on making common plotting
     tasks simple while maintaining full flexibility for customization.
-  dev_url: https://github.com/ultraplot/ultraplot/issues
+  homepage: https://github.com/ultraplot/ultraplot
+  repository: https://github.com/ultraplot/ultraplot/issues
 
 extra:
   recipe-maintainers:
