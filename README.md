@@ -3,18 +3,19 @@ About ultraplot-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ultraplot-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/ultraplot/ultraplot
+Home: https://ultraplot.readthedocs.io/
 
 Package license: MIT
 
 Summary: Elegant and flexible high-level plotting with matplotlib
 
-Development: https://github.com/ultraplot/ultraplot/issues
+Development: https://github.com/ultraplot/ultraplot
+
+Documentation: https://ultraplot.readthedocs.io/
 
 Ultraplot is a Python library that provides a high-level interface for creating
 publication-quality plots using matplotlib. It focuses on making common plotting
 tasks simple while maintaining full flexibility for customization.
-
 
 Current build status
 ====================
@@ -197,4 +198,5 @@ Feedstock Maintainers
 
 * [@beckermr](https://github.com/beckermr/)
 * [@cvanelteren](https://github.com/cvanelteren/)
+* [@munechika-koyo](https://github.com/munechika-koyo/)
 
