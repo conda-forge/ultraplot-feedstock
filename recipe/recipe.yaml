@@ -2,7 +2,8 @@ schema_version: 1
 
 context:
   version: "2.7.0"
-  python_min: "3.10"
+  mpl_min: "3.9"
+  mpl_max: "3.12"
 
 package:
   name: ultraplot
@@ -15,41 +16,65 @@ source:
 build:
   number: 1
   noarch: python
-  script: python -m pip install . --no-deps -vv
+  script:
+    content: pip install . -vv
+    env:
+      SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
+  python:
+    entry_points:
+      - ultraplot-mcp = ultraplot.mcp:main
+  files:
+    exclude:
+      - var/cache/fontconfig/*
+      - "**/site-packages/ultraplot/tests/**"
+      - "**/site-packages/tools/**"
 
 requirements:
   host:
     - python ${{ python_min }}.*
     - pip
     - setuptools
-    - setuptools_scm
+    - setuptools-scm
     - numpy >=1.26.0
-    - matplotlib-base >=3.9, <3.12
+    - matplotlib-base >=${{ mpl_min }},<${{ mpl_max }}
   run:
-    - importlib-metadata
     - python >=${{ python_min }}
-    - matplotlib-base >=3.9,<3.12
     - numpy >=1.26.0
+    - matplotlib-base >=${{ mpl_min }},<${{ mpl_max }}
     - typing-extensions
-  run_constraints:
-    - basemap >=1.4.1
 
 tests:
   - python:
       imports:
         - ultraplot
-      pip_check: false
       python_version:
         - ${{ python_min }}.*
         - "*"
-  - requirements:
+  - script:
+      content: pytest -q --tb=short --disable-warnings ultraplot/tests
+    files:
+      source:
+        - pyproject.toml
+        - ultraplot/tests
+        - tools
+    requirements:
       run:
-        - pip
         - python ${{ python_min }}.*
-    script:
-      - python -c "import ultraplot; assert ultraplot.__version__ == '${{ version }}'.replace('v', '')"
+        - matplotlib-base ${{ mpl_min }}.*
+        - pytest
+        - pytest-mpl
+        - cartopy
+        - cftime
+        - pandas
+        - pint
+        - networkx
+        - pyarrow
+        - pyyaml
+        - seaborn
+        - xarray
 
 about:
+  homepage: https://ultraplot.readthedocs.io/
   license: MIT
   license_file: LICENSE.txt
   summary: Elegant and flexible high-level plotting with matplotlib
@@ -57,10 +82,11 @@ about:
     Ultraplot is a Python library that provides a high-level interface for creating
     publication-quality plots using matplotlib. It focuses on making common plotting
     tasks simple while maintaining full flexibility for customization.
-  homepage: https://github.com/ultraplot/ultraplot
-  repository: https://github.com/ultraplot/ultraplot/issues
+  repository: https://github.com/ultraplot/ultraplot
+  documentation: https://ultraplot.readthedocs.io/
 
 extra:
   recipe-maintainers:
     - cvanelteren
     - beckermr
+    - munechika-koyo
