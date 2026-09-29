@@ -50,28 +50,29 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
+
   - script:
-      content: pytest -q --tb=short --disable-warnings ultraplot/tests
-    files:
-      source:
-        - pyproject.toml
-        - ultraplot/tests
-        - tools
+      interpreter: python
+      content: |
+        import ultraplot as uplt
+
+        assert uplt.__version__ == '${{ version }}'
+
+        fig, ax = uplt.subplots()
+        ax.plot([0, 1], [0, 1])
     requirements:
       run:
         - python ${{ python_min }}.*
         - matplotlib-base ${{ mpl_min }}.*
-        - pytest
-        - pytest-mpl
-        - cartopy
-        - cftime
-        - pandas
-        - pint
-        - networkx
-        - pyarrow
-        - pyyaml
-        - seaborn
-        - xarray
+
+  - script:
+      content:
+        - ultraplot-mcp --help
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+        - matplotlib-base ${{ mpl_min }}.*
+        - mcp >=2.1,<3
 
 about:
   homepage: https://ultraplot.readthedocs.io/
