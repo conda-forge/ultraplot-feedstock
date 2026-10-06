@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "2.7.1"
+  version: "2.7.2"
   mpl_min: "3.9"
   mpl_max: "3.12"
 
@@ -10,8 +10,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/u/ultraplot/ultraplot-${{ version }}.tar.gz
-  sha256: 71c7a5917b562def85cbcb87c1217c3182464867b4c76a0dd6eb982e9df86c73
+  url: https://github.com/ultraplot/ultraplot/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 921fa85beca65a8e0d7232620c7e3cd3ee79c1feb4d50920742df028dfd4c8e5
 
 build:
   number: 0
