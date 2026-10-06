@@ -12,14 +12,14 @@ package:
 source:
   url: https://github.com/ultraplot/ultraplot/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 921fa85beca65a8e0d7232620c7e3cd3ee79c1feb4d50920742df028dfd4c8e5
+  patches:
+    - package-data.patch
 
 build:
   number: 1
   noarch: python
   script:
-    content: |
-      python -m build -nx --wheel . --outdir dist
-      python -m pip install dist/*.whl
+    content: pip install . -vv
     env:
       SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
   python:
@@ -35,7 +35,6 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - python-build
     - setuptools
     - setuptools-scm
     - numpy >=1.26.0

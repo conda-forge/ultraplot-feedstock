@@ -1,0 +1,14 @@
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -89,7 +89,15 @@ include-package-data = true
+
+ [tool.setuptools.package-data]
+-ultraplot = ["py.typed"]
++ultraplot = [
++  ".opencode/goals/**/*",
++  "cmaps/*",
++  "colors/*",
++  "cycles/*",
++  "fonts/*",
++  "py.typed",
++]
