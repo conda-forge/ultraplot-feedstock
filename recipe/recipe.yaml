@@ -14,10 +14,12 @@ source:
   sha256: 921fa85beca65a8e0d7232620c7e3cd3ee79c1feb4d50920742df028dfd4c8e5
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
-    content: pip install . -vv
+    content: |
+      python -m build -nx --wheel . --outdir dist
+      python -m pip install dist/*.whl
     env:
       SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
   python:
@@ -33,6 +35,7 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
+    - python-build
     - setuptools
     - setuptools-scm
     - numpy >=1.26.0
@@ -69,6 +72,12 @@ tests:
         - python ${{ python_min }}.*
         - matplotlib-base ${{ mpl_min }}.*
         - mcp >=2.1,<3
+
+  - package_contents:
+      files:
+        - "**/site-packages/ultraplot/fonts/**.ttf"
+        - "**/site-packages/ultraplot/cmaps/**.rgb"
+        - "**/site-packages/ultraplot/cycles/**.hex"
 
 about:
   homepage: https://ultraplot.readthedocs.io/
