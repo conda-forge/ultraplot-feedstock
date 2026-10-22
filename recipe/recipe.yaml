@@ -12,8 +12,6 @@ package:
 source:
   url: https://github.com/ultraplot/ultraplot/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 5cb0105a02b1795b687ead724c272abf02abfa0fab01d999e0f80cb816138cf9
-  patches:
-    - package-data.patch
 
 build:
   number: 0
