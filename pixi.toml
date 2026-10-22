@@ -5,7 +5,7 @@
 
 [workspace]
 name = "ultraplot-feedstock"
-version = "2026.9.23"  # conda-smithy version used to generate this file
+version = "2026.10.21"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/ultraplot-feedstock"
 authors = ["@conda-forge/ultraplot"]
 channels = ["conda-forge"]
